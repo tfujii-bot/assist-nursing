@@ -470,21 +470,7 @@
         <h2 class="contact-h">その看護を、<br>あなたと一緒に作りたい。</h2>
         <div class="contact-box">
             <h4>見学・相談のお申し込み</h4>
-            <div class="fgroup">
-                <input type="text" placeholder="お名前">
-            </div>
-            <div class="fgroup">
-                <input type="email" placeholder="メールアドレス">
-            </div>
-            <div class="fgroup">
-                <select>
-                    <option value="" disabled selected>ご希望の内容をお選びください</option>
-                    <option value="visit">見学</option>
-                    <option value="consult">相談</option>
-                    <option value="apply">応募</option>
-                </select>
-            </div>
-            <button type="button" class="btn-submit" id="submitBtn">一度、話を聞いてみる</button>
+<button type="button" class="btn-submit" id="submitBtn">一度、話を聞いてみる</button>
             <p class="cnote">※ご相談だけでも大歓迎です。無理な勧誘はいたしません。</p>
         </div>
     </div>
@@ -507,30 +493,6 @@
 </div>
 
 <script>
-    document.getElementById('submitBtn').addEventListener('click', function() {
-        const name = document.querySelector('input[type="text"]').value.trim();
-        const email = document.querySelector('input[type="email"]').value.trim();
-        const select = document.querySelector('select');
-        const type = select.options[select.selectedIndex].text;
-        const typeVal = select.value;
-
-        if (!name || !email || !typeVal) {
-            alert('お名前・メールアドレス・ご希望の内容をご入力ください。');
-            return;
-        }
-
-        const subject = encodeURIComponent('【あしすと訪問看護】' + type + 'のご希望');
-        const body = encodeURIComponent(
-            'お名前：' + name + '\n' +
-            'メールアドレス：' + email + '\n' +
-            'ご希望の内容：' + type + '\n\n' +
-            '---\n' +
-            'あしすと訪問看護ステーション採用窓口\n' +
-            'trlab.assist@gmail.com'
-        );
-        window.location.href = 'mailto:trlab.assist@gmail.com?subject=' + subject + '&body=' + body;
-    });
-
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
     }, { threshold: 0.1 });
